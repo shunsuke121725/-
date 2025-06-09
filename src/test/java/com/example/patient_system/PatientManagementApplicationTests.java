@@ -1,10 +1,10 @@
-package com.example.music_management;
+package com.example.patient_system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MusicManagementApplicationTests {
+class PatientManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
