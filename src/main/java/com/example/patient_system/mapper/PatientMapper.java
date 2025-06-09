@@ -17,4 +17,7 @@ public interface PatientMapper {
     @Options(useGeneratedKeys = true, keyProperty = "patientId")
     void insertPatient(Patient patient);
 
+    @Select("SELECT * FROM patient WHERE patient_id = #{patientId}")
+    Patient selectPatientById(long patientId);
+
 }
