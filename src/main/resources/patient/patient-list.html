@@ -9,22 +9,22 @@
        <tr>
            <th>ID</th>
            <th>氏名</th>
-           <th>日程</th>
+           <th>予約日</th>
            <th>場所</th>
            <th></th>
        </tr>
        </thead>
        <tbody>
        <tr th:each="patient : ${lists}">
-           <td><span th:text="${patient.listId}">patient id</span></td>
-           <td><a th:href="@{/lists/{ListId}(albumId=${patient.ListId})}"><span th:text="${patient.title}">patient title</span></a></td>
+           <td><span th:text="${patient.listId}">patient listId</span></td>
+           <td><a th:href="@{/lists/{listId}(listId=${patient.listId})}"><span th:text="${patient.listId}">patient listId</span></a></td>
            <td><span th:text="${patient.name}">patient name</span></td>
            <td><span th:text="${patient.latestBookingDate}">patient latestBookingDate</span></td>
            <td>
-                <form th:action="@{/lists/{listId}/edit(albumId=${patient.albumId})}" method="get">
+                <form th:action="@{/lists/{listId}/edit(listId=${patient.listId})}" method="get">
                     <button type="submit">編集</button>
                 </form>
-                <form th:action="@{/lists/{albumId}/delete(albumId=${patient.albumId})}" method="post">
+                <form th:action="@{/lists/{listId}/delete(listId=${patient.listId})}" method="post">
                     <button type="submit">削除</button>
                 </form>
            </td>
