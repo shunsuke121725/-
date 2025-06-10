@@ -2,7 +2,7 @@ create table lists (
     list_id integer auto_increment primary key,
     name varchar(100) not null,
     latestBookingDate date,
-    place varchar (100),
+    place varchar (100)
 );
 
 create table patients (
@@ -13,5 +13,5 @@ create table patients (
     diseaseName varchar(100),
     symptoms varchar(100),
     latestBookingDate date,
-    foreign key (patient_id) refereces patients(patient_id)
+    foreign key (patient_id) references lists(list_id)
 );
