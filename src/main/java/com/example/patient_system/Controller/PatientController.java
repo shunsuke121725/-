@@ -5,8 +5,33 @@ import com.example.patient_system.service.PatientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+@Controller
+@RequestMapping("/patients")
+public class PatientController{
+    private final PatientService patientService;
+
+    public PatientController(PatientService patientService) {
+        this.patientService = patientService;
+    }
+
+    @GetMapping
+    public String patient(Model model) {
+        List<Patient> patients = patientService.getAllPatients();
+        model.addAttribute("patients", patients);
+
+        return "patient/patient-list";
+    }
+=======
+
+import java.util.List;
+>>>>>>> 15d0ce06a79ca662f4201f2f40f31c83fa174f6d
 
 @Controller
 public class PatientController {
