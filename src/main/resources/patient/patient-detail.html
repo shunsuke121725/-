@@ -7,7 +7,7 @@
  <table>
     <tr>
         <th>患者ID</th>
-        <td th:text="${patient.patient_id}"></td>
+        <td th:text="${patient.ListId}"></td>
     </tr>
     <tr>
         <th>氏名</th>
@@ -30,8 +30,8 @@
         <td th:text="${patient.symptoms}"></td>
     </tr>
     <tr>
-        <th>作成日時</th>
-        <td th:text="${#temporals.format(album.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <th>予約日</th>
+        <td th:text="${#temporals.format(patient.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
     </tr>
  </table>
  <a href="/lists">一覧に戻る</a>

@@ -7,14 +7,14 @@
      <form th:action="@{/lists/{pacientsId}/edit(patientId=${patient.albumId})}" th:object="${patient}" method="post">
         <div>
             <label for="title">ID：</label>
-            <input type="text" id="ListId" name="ListId" th:field="*{ListId}">
+            <input type="text" id="listId" name="listId" th:field="*{listId}">
         </div>
         <div>
             <label for="name">氏名：</label>
             <input type="text" id="name" name="name" th:field="*{name}">
         </div>
         <div>
-            <label for="latestBookingDate">日程：</label>
+            <label for="latestBookingDate">予約日：</label>
             <input type="date" id="latestBookingDate" name="latestBookingDate" th:field="*{latestBookingDate}">
         </div>
         <div>
