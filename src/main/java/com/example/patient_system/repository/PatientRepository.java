@@ -18,4 +18,7 @@ public class PatientRepository {
         return patientMapper.selectALLPatients();
     }
     
+    public void savePatient(Patient patient) {
+    patientMapper.insertPatient(patient);
+}
 }

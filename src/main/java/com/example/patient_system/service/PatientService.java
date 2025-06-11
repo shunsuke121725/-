@@ -17,4 +17,8 @@ public class PatientService {
     public List<Patient> getAllPatients() {
         return patientRepository.getAllPatients();
     }
+
+    public void savePatient(Patient patient) {
+    patientRepository.savePatient(patient);
+}
 }
