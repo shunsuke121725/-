@@ -21,4 +21,12 @@ public class PatientRepository {
     public void savePatient(Patient patient) {
     patientMapper.insertPatient(patient);
 }
+
+public Patient getPatientById(long listId) {
+    return patientMapper.selectPatientById(listId);
+}
+
+    public void deletePatient(long patientId) {
+        patientMapper.deletePatientById(patientId);
+    }
 }

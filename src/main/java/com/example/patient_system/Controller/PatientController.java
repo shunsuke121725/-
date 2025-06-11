@@ -6,10 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequestMapping("/patients")
@@ -48,4 +51,20 @@ public class PatientController {
         patientService.savePatient(patient);
         return "redirect:/patients";  // 保存後に患者一覧へリダイレクト
     }
+
+    @GetMapping("/{patientId}")
+    public String patient(@PathVariable long patientId, Model model) {
+        Patient patient = patientService.getPatientById(patientId);
+
+        model.addAttribute("patient", patient);
+
+        return "patient/patient-detail";
+    }
+
+    @PostMapping("/{patientId}/delete")
+    public String postMethodName(@PathVariable long patientId ) {
+        patientService.deletePatient(patientId);
+        return "redirect:/patients";
+    }
+    
 }

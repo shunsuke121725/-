@@ -15,5 +15,5 @@ CREATE TABLE patients (
     symptoms varchar(100),
     latestBookingDate DATE,
     place VARCHAR(20),
-    FOREIGN KEY (list_id) REFERENCES lists(list_id)
+    FOREIGN KEY (list_id) REFERENCES lists(list_id) ON DELETE CASCADE
 );

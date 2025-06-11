@@ -15,6 +15,7 @@
                 <th>名前</th>
                 <th>来院日</th>
                 <th>病室</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,11 @@
             </td>
             <td th:text="${patient.latestBookingDate}">来院日</td>
             <td th:text="${patient.place}">病室</td>
+            <td>
+                <formth:action="@{/patients/{patientId}/delete(patientId=${patient.patientId})}" method="post">
+                    <button type="submit">削除</button>
+                </form>
+            </td>
             </tr>
         </tbody>
     </table>
