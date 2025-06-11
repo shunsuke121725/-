@@ -9,8 +9,8 @@ import java.util.List;
 
 @Mapper
 public interface PatientMapper {
-    @Insert("INSERT INTO patients (name, age, bloodType, diseaseName, symptoms, latestBookingDate) " +
-        "VALUES (#{name}, #{age}, #{bloodType}, #{diseaseName}, #{symptoms}, #{latestBookingDate})")
+    @Insert("INSERT INTO patients (list_id, name, age, bloodType, diseaseName, symptoms, latestBookingDate, place) " +
+        "VALUES (1, #{name}, #{age}, #{bloodType}, #{diseaseName}, #{symptoms}, #{latestBookingDate}, #{place})")
     void insertPatient(Patient patient);
 
     @Select("SELECT patient_id, name, latestBookingDate, place FROM patients")
