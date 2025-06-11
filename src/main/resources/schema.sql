@@ -14,5 +14,6 @@ CREATE TABLE patients (
     diseaseName varchar(100),
     symptoms varchar(100),
     latestBookingDate DATE,
+    place VARCHAR(20),
     FOREIGN KEY (list_id) REFERENCES lists(list_id)
 );

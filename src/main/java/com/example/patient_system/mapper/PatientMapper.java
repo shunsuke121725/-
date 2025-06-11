@@ -13,7 +13,7 @@ public interface PatientMapper {
         "VALUES (#{name}, #{age}, #{bloodType}, #{diseaseName}, #{symptoms}, #{latestBookingDate})")
     void insertPatient(Patient patient);
 
-    @Select("SELECT name, age, bloodType, diseaseName, symptoms, latestBookingDate FROM patients")
+    @Select("SELECT patient_id, name, latestBookingDate, place FROM patients")
     List<Patient> selectALLPatients();
     
 }

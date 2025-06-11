@@ -11,11 +11,10 @@ public class Patient {
     private Integer age;
     private String bloodType;
     private String diseaseName;
-    private String Symptoms;
+    private String symptoms;
     private LocalDate latestBookingDate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate bookingDate;
-
+      private LocalDate bookingDate;
     private String place;
 }

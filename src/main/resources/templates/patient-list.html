@@ -13,21 +13,18 @@
         <thead>
             <tr>
                 <th>名前</th>
-                <th>年齢</th>
-                <th>血液型</th>
-                <th>病名</th>
-                <th>症状</th>
                 <th>来院日</th>
+                <th>病室</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="patient : ${patients}">
-                <td th:text="${patient.name}"></td>
-                <td th:text="${patient.age}"></td>
-                <td th:text="${patient.bloodType}"></td>
-                <td th:text="${patient.diseaseName}"></td>
-                <td th:text="${patient.symptoms}"></td>
-                <td th:text="${patient.latestBookingDate}"></td>
+                <td>
+                <a th:href="@{'/patients/' + ${patient.patientId}}"
+                 th:text="${patient.name}">名前</a>
+            </td>
+            <td th:text="${patient.latestBookingDate}">来院日</td>
+            <td th:text="${patient.place}">病室</td>
             </tr>
         </tbody>
     </table>
