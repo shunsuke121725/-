@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>患者一覧</title>
+</head>
+<body>
+    <h2>患者一覧</h2>
+
+    <a th:href="@{/patients/new}">新規患者登録</a>  <!-- ここが新規登録画面へのリンク -->
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>来院日</th>
+                <th>病室</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="patient : ${patients}">
+                <td>
+                <a th:href="@{'/patients/' + ${patient.patientId}}"
+                 th:text="${patient.name}">名前</a>
+            </td>
+            <td th:text="${patient.latestBookingDate}">来院日</td>
+            <td th:text="${patient.place}">病室</td>
+            <td>
+                <formth:action="@{/patients/{patientId}/delete(patientId=${patient.patientId})}" method="post">
+                    <button type="submit">削除</button>
+                </form>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
