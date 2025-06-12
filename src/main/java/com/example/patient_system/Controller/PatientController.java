@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -45,7 +46,27 @@ public class PatientController {
     // フォーム送信を受けて保存（URL: /patients/save）
     @PostMapping("/save")
     public String save(@ModelAttribute Patient patient) {
+        //listIdを1に固定
+        patient.setListId(1);
         patientService.savePatient(patient);
         return "redirect:/patients";  // 保存後に患者一覧へリダイレクト
+    }
+    @GetMapping("/edit/{id}")
+    public String editPatient(@PathVariable("id") Integer id, Model model) {
+        Patient patient = patientService.findById(id);
+        model.addAttribute("patient", patient);
+        return "patient-form"; // 新規登録と同じフォームを再利用
+    }
+
+    @PostMapping("/update")
+    public String updatePatient(@ModelAttribute Patient patient) {
+        patientService.updatePatient(patient);
+        return "redirect:/patients";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletePatient(@PathVariable("id") Integer id) {
+        patientService.deletePatient(id);
+        return "redirect:/patients";
     }
 }

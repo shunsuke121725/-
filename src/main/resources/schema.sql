@@ -9,11 +9,11 @@ CREATE TABLE patients (
     patient_id INTEGER auto_increment PRIMARY KEY,
     list_id INTEGER NOT NULL,
     name varchar(100) NOT NULL,
-    age CHAR(3) NOT NULL,
-    bloodType CHAR(2),
+    age INT NOT NULL,
+    bloodType CHAR(5),
     diseaseName varchar(100),
     symptoms varchar(100),
     latestBookingDate DATE,
-    place VARCHAR(20),
+    place VARCHAR(50),
     FOREIGN KEY (list_id) REFERENCES lists(list_id)
 );
