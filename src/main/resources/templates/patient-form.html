@@ -2,25 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>患者登録</title>
+    <title th:text="${patient.patientId == null} ? '新規患者登録' : '患者情報編集'">患者フォーム</title>
 </head>
 <body>
-<h2 th:text="(${patient.patientId} == null) ? '新規患者登録' : '患者情報編集'"></h2>
 
-<form th:action="@{${patient.patientId} == null ? '/patients/save' : '/patients/update'}" th:object="${patient}" method="post">
-  <input type="hidden" th:field="*{patientId}" />
-    名前: <input type="text" th:field="*{name}" /><br/>
-    年齢: <input type="number" th:field="*{age}" /><br/>
-    血液型: <input type="text" th:field="*{bloodType}" /><br/>
-    病名: <input type="text" th:field="*{diseaseName}" /><br/>
-    症状: <input type="text" th:field="*{symptoms}" /><br/>
-    来院日: <input type="date" th:field="*{latestBookingDate}" /><br/>
-    病室: <input type="text" th:field="*{place}" /><br/>
-    <button type="submit">保存</button>
-</form>
+<h2 th:text="${patient.patientId == null} ? '新規患者登録' : '患者情報編集'"></h2>
 
-<form th:object="${patient}" method="post" th:action="@{/patients/update}" th:unless="${patient.patientId} == null">
+<form th:action="@{${patient.patientId == null} ? '/patients/save' : '/patients/update'}"
+      th:object="${patient}" method="post">
+
     <input type="hidden" th:field="*{patientId}" />
+
     名前: <input type="text" th:field="*{name}" /><br/>
     年齢: <input type="number" th:field="*{age}" /><br/>
     血液型: <input type="text" th:field="*{bloodType}" /><br/>
@@ -28,9 +20,11 @@
     症状: <input type="text" th:field="*{symptoms}" /><br/>
     来院日: <input type="date" th:field="*{latestBookingDate}" /><br/>
     病室: <input type="text" th:field="*{place}" /><br/>
+
     <button type="submit">保存</button>
 </form>
 
 <a th:href="@{/patients}">戻る</a>
+
 </body>
 </html>

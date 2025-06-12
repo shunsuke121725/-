@@ -1,8 +1,8 @@
 CREATE TABLE lists (
     list_id INTEGER auto_increment PRIMARY KEY,
-    name varchar(100) NOT NULL,
+    name varchar(50) NOT NULL,
     latestBookingDate DATE,
-    place varchar(100)
+    place VARCHAR(50)
 );
 
 CREATE TABLE patients (
@@ -14,6 +14,7 @@ CREATE TABLE patients (
     diseaseName varchar(100),
     symptoms varchar(100),
     latestBookingDate DATE,
+    place varchar(100),
     FOREIGN KEY (list_id) REFERENCES lists(list_id)
 );
 
