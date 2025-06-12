@@ -18,4 +18,19 @@ public class PatientRepository {
         return patientMapper.selectALLPatients();
     }
     
+    public void savePatient(Patient patient) {
+        patientMapper.insertPatient(patient);
+    }
+
+    public Patient findById(Integer id) {
+        return patientMapper.findById(id);
+    }
+
+    public void updatePatient(Patient patient) {
+        patientMapper.updatePatient(patient);
+    }
+
+    public void deletePatient(Integer id) {
+        patientMapper.deletePatient(id);
+    }
 }

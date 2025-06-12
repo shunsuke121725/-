@@ -17,4 +17,20 @@ public class PatientService {
     public List<Patient> getAllPatients() {
         return patientRepository.getAllPatients();
     }
+
+    public void savePatient(Patient patient) {
+    patientRepository.savePatient(patient);
+    }
+
+    public Patient findById(Integer id) {
+    return patientRepository.findById(id);
+    }
+
+    public void updatePatient(Patient patient) {
+    patientRepository.updatePatient(patient);   
+    }   
+
+    public void deletePatient(Integer id) {
+    patientRepository.deletePatient(id);
+    }
 }

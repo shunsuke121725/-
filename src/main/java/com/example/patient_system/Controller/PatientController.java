@@ -48,23 +48,27 @@ public class PatientController {
     // フォーム送信を受けて保存（URL: /patients/save）
     @PostMapping("/save")
     public String save(@ModelAttribute Patient patient) {
+        //listIdを1に固定
+        patient.setListId(1);
         patientService.savePatient(patient);
         return "redirect:/patients";  // 保存後に患者一覧へリダイレクト
     }
-
-    @GetMapping("/{patientId}")
-    public String patient(@PathVariable long patientId, Model model) {
-        Patient patient = patientService.getPatientById(patientId);
-
+    @GetMapping("/edit/{id}")
+    public String editPatient(@PathVariable("id") Integer id, Model model) {
+        Patient patient = patientService.findById(id);
         model.addAttribute("patient", patient);
-
-        return "patient/patient-detail";
+        return "patient-form"; // 新規登録と同じフォームを再利用
     }
 
-    @PostMapping("/{patientId}/delete")
-    public String postMethodName(@PathVariable long patientId ) {
-        patientService.deletePatient(patientId);
+    @PostMapping("/update")
+    public String updatePatient(@ModelAttribute Patient patient) {
+        patientService.updatePatient(patient);
         return "redirect:/patients";
     }
-    
+
+    @GetMapping("/delete/{id}")
+    public String deletePatient(@PathVariable("id") Integer id) {
+        patientService.deletePatient(id);
+        return "redirect:/patients";
+    }
 }

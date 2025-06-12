@@ -7,7 +7,7 @@
 <body>
     <h2>患者一覧</h2>
 
-    <a th:href="@{/patients/new}">新規患者登録</a>  <!-- ここが新規登録画面へのリンク -->
+    <a th:href="@{/patients/new}">新規患者登録</a>
 
     <table border="1">
         <thead>
@@ -15,22 +15,22 @@
                 <th>名前</th>
                 <th>来院日</th>
                 <th>病室</th>
-                <th></th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="patient : ${patients}">
                 <td>
-                <a th:href="@{'/patients/' + ${patient.patientId}}"
-                 th:text="${patient.name}">名前</a>
-            </td>
-            <td th:text="${patient.latestBookingDate}">来院日</td>
-            <td th:text="${patient.place}">病室</td>
-            <td>
-                <formth:action="@{/patients/{patientId}/delete(patientId=${patient.patientId})}" method="post">
-                    <button type="submit">削除</button>
-                </form>
-            </td>
+                    <a th:href="@{'/patients/' + ${patient.patientId}}"
+                       th:text="${patient.name}">名前</a>
+                </td>
+                <td th:text="${patient.latestBookingDate}">来院日</td>
+                <td th:text="${patient.place}">病室</td>
+                <td>
+                    <a th:href="@{'/patients/edit/' + ${patient.patientId}}">編集</a> |
+                    <a th:href="@{'/patients/delete/' + ${patient.patientId}}"
+                       onclick="return confirm('本当に削除しますか？');">削除</a>
+                </td>
             </tr>
         </tbody>
     </table>
