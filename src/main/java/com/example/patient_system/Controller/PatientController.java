@@ -1,5 +1,6 @@
 package com.example.patient_system.Controller;
 
+import com.example.patient_system.entity.Lists;
 import com.example.patient_system.entity.Patient;
 import com.example.patient_system.service.PatientService;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -33,8 +34,9 @@ public class PatientController {
 
     @GetMapping
     public String patientList(Model model) {
-        List<Patient> patients = patientService.getAllPatients();
-        model.addAttribute("patients", patients);
+        List<Lists> lists = patientService.getAllLists();
+        
+        model.addAttribute("lists", lists);
         return "patient-list"; // templates/patient-list.html を返す
     }
 

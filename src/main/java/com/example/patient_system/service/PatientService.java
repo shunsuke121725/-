@@ -1,6 +1,7 @@
 package com.example.patient_system.service;
 
 import com.example.patient_system.repository.PatientRepository;
+import com.example.patient_system.entity.Lists;
 import com.example.patient_system.entity.Patient;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,9 @@ public class PatientService {
 
     public void deletePatient(Integer id) {
     patientRepository.deletePatient(id);
+    }
+
+    public List<Lists> getAllLists() {
+            return patientRepository.getAllLists();
     }
 }
