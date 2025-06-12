@@ -52,4 +52,9 @@ List<Patient> selectALLPatients();
     @Delete("DELETE FROM patients WHERE patient_id = #{patientId}")
     void deletePatient(Integer patientId);
     
+    @Select("SELECT * FROM patients WHERE list_id = #{listId}")
+    Patient selectPatientById(long listId);
+
+    @Delete("DELETE FROM patients WHERE patient_id = #{patientId}")
+    void deletePatientById(long patientId);
 }
