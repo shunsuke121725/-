@@ -34,10 +34,9 @@ public class PatientController {
 
     @GetMapping
     public String patientList(Model model) {
-        List<Lists> lists = patientService.getAllLists();
-        
-        model.addAttribute("lists", lists);
-        return "patient-list"; // templates/patient-list.html を返す
+        List<Patient> patients = patientService.getAllPatients();  
+        model.addAttribute("patients", patients);  
+        return "patient-list";
     }
 
     // 新規登録フォーム表示（URL: /patients/new）

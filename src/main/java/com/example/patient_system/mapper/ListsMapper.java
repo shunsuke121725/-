@@ -25,7 +25,5 @@ public interface ListsMapper {
     //すべてのアルバムを取得します
     @Select("SELECT * FROM lists")
    List<Lists> selectAllLists();
-
-        
 } 
 

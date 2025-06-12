@@ -19,16 +19,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="list : ${lists}">
+            <tr th:each="patient : ${patients}">
+                <td th:text="${patient.name}">名前</td>
+                <td th:text="${patient.latestBookingDate}">来院日</td>
+                <td th:text="${patient.place}">病室</td>
                 <td>
-                    <a th:href="@{'/patients/' + ${list.list_id}}"
-                       th:text="${list.name}">名前</a>
-                </td>
-                <td th:text="${list.latestBookingDate}">来院日</td>
-                <td th:text="${list.place}">病室</td>
-                <td>
-                    <a th:href="@{'/patients/edit/' + ${list.list_id}}">編集</a> |
-                    <a th:href="@{'/patients/delete/' + ${list.list_id}}"
+                    <a th:href="@{'/patients/edit/' + ${patient.patientId}}">編集</a> |
+                    <a th:href="@{'/patients/delete/' + ${patient.patientId}}"
                        onclick="return confirm('本当に削除しますか？');">削除</a>
                 </td>
             </tr>

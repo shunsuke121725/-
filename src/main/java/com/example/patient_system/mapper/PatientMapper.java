@@ -45,7 +45,7 @@ List<Patient> selectALLPatients();
     })
     Patient findById(Integer patientId);
     // UPDATE
-    @Update("UPDATE patients SET name=#{name}, age=#{age}, bloodType=#{bloodType}, diseaseName=#{diseaseName}, " +
+    @Update("UPDATE patients SET list_id =#{listId}, name=#{name}, age=#{age}, bloodType=#{bloodType}, diseaseName=#{diseaseName}, " +
             "symptoms=#{symptoms}, latestBookingDate=#{latestBookingDate}, place=#{place} WHERE patient_id=#{patientId}")
     void updatePatient(Patient patient);
     // DELETE
