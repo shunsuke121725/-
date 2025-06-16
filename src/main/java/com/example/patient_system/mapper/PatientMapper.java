@@ -28,7 +28,7 @@ public interface PatientMapper {
     @Result(column = "symptoms", property = "symptoms"),
     @Result(column = "latestBookingDate", property = "latestBookingDate"),
     @Result(column = "place", property = "place")
-})
+    })
 List<Patient> selectALLPatients();
     // 患者情報を更新するSQLクエリ
    @Select("SELECT * FROM patients WHERE patient_id = #{patientId}")
@@ -45,11 +45,10 @@ List<Patient> selectALLPatients();
     })
     Patient findById(Integer patientId);
     // UPDATE
-    @Update("UPDATE patients SET name=#{name}, age=#{age}, bloodType=#{bloodType}, diseaseName=#{diseaseName}, " +
+    @Update("UPDATE patients SET list_id =#{listId}, name=#{name}, age=#{age}, bloodType=#{bloodType}, diseaseName=#{diseaseName}, " +
             "symptoms=#{symptoms}, latestBookingDate=#{latestBookingDate}, place=#{place} WHERE patient_id=#{patientId}")
     void updatePatient(Patient patient);
     // DELETE
     @Delete("DELETE FROM patients WHERE patient_id = #{patientId}")
     void deletePatient(Integer patientId);
-    
 }
