@@ -1,0 +1,32 @@
+/*=============
+.bg_pattern
+==============*/
+
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffe9a7;
+  opacity: 0.4;
+  z-index: -1;
+}
+.Boxes {
+  background-image:  linear-gradient(#ffc107 2px, transparent 2px), linear-gradient(to right, #ffc107 2px, #ffe9a7 2px);
+  background-size: 40px 40px;
+}
+
+/* * {
+  font-size: 100px;
+} */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.title {
+    text-align: center;
+}
