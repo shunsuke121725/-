@@ -1,4 +1,4 @@
-package com.example.patient_system.controller;
+package com.example.patient_system.Controller;
 
  import org.springframework.stereotype.Controller;
  import org.springframework.web.bind.annotation.GetMapping;
