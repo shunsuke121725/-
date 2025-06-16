@@ -1,28 +1,114 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title th:text="${patient.patientId == null} ? '新規患者登録' : '患者情報編集'">患者フォーム</title>
-</head>
-<body>
+ <html lang="ja" xmlns:th="http://www.thymeleaf.org">
+ <head th:replace="~{layout :: head(患者登録)}">
+          <!-- BootstrapのCSSを読み込み -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<h2 th:text="${patient.patientId == null} ? '新規患者登録' : '患者情報編集'"></h2>
+ </head>
+ <body>
+ <div th:replace="~{layout :: header}"></div>
+    <!-- 背景設定 -->
+    <div class="bg_pattern Boxes"></div>
+<h2 th:text="(${patient.patientId} == null) ? '新規患者登録' : '患者情報編集'"></h2>
 
-<form th:action="@{${patient.patientId == null} ? '/patients/save' : '/patients/update'}"
-      th:object="${patient}" method="post">
+<div class="container">
+    <div class="row justify-content-center title">
+        <div class="col-md-6">
+        <form th:action="@{${patient.patientId} == null ? '/patients/save' : '/patients/update'}" th:object="${patient}" method="post">
+            <div class="form-floating mb-3">
+            <input type="hidden" th:field="*{patientId}" />
+            
+            <div class="mb-3">
+                <label for="name">名前</label>
+                <input type="text" class="form-control w-50 mx-auto" id="name" th:field="*{name}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="age">年齢</label>
+                <input type="number" class="form-control w-50 mx-auto" id="age" th:field="*{age}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="bloodType">血液型</label>
+                <input type="text" class="form-control w-50 mx-auto" id="bloodType" th:field="*{bloodType}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="diseaseName">病名</label>
+                <input type="text" class="form-control w-50 mx-auto" id="diseaseName" th:field="*{diseaseName}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="symptoms">症状</label>
+                <input type="text" class="form-control w-50 mx-auto" id="symptoms" th:field="*{symptoms}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="latestBookingDate">来院日</label>
+                <input type="date" class="form-control w-50 mx-auto" id="latestBookingDate" th:field="*{latestBookingDate}" />
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="place">病室</label>
+                <input type="text" class="form-control w-50 mx-auto" id="place" th:field="*{place}" />
+                
+            </div>
+            
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+        </form>
 
+<!--<form th:object="${patient}" method="post" th:action="@{/patients/update}" th:unless="${patient.patientId} == null">
     <input type="hidden" th:field="*{patientId}" />
-
-    名前: <input type="text" th:field="*{name}" /><br/>
-    年齢: <input type="number" th:field="*{age}" /><br/>
-    血液型: <input type="text" th:field="*{bloodType}" /><br/>
-    病名: <input type="text" th:field="*{diseaseName}" /><br/>
-    症状: <input type="text" th:field="*{symptoms}" /><br/>
-    来院日: <input type="date" th:field="*{latestBookingDate}" /><br/>
-    病室: <input type="text" th:field="*{place}" /><br/>
+    
+    <div class="mb-3">
+        <label for="name">名前:</label>
+        <input type="text" class="form-control" id="name" th:field="*{name}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="age">年齢:</label>
+        <input type="number" class="form-control" id="age" th:field="*{age}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="bloodType">血液型:</label>
+        <input type="text" class="form-control" id="bloodType" th:field="*{bloodType}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="diseaseName">病名:</label>
+        <input type="text" class="form-control" id="diseaseName" th:field="*{diseaseName}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="symptoms">症状:</label>
+        <input type="text" class="form-control" id="symptoms" th:field="*{symptoms}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="latestBookingDate">来院日:</label>
+        <input type="date" class="form-control" id="latestBookingDate" th:field="*{latestBookingDate}" /><br/>
+    </div>
+    
+    <div class="mb-3">
+        <label for="place">病室:</label>
+        <input type="text" class="form-control" id="place" th:field="*{place}" /><br/>
+    </div>
+    
     <button type="submit">保存</button>
-</form>
-
+</form>-->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <a th:href="@{/patients}">戻る</a>
 </body>
 </html>

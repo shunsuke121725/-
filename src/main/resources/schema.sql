@@ -10,16 +10,12 @@ CREATE TABLE patients (
     list_id INTEGER NOT NULL,
     name varchar(50) NOT NULL,
     age INT NOT NULL,
-    streetAddress varchar(100),
-    telephone INT,
     gender CHAR(10),
     bloodType CHAR(5),
     diseaseName varchar(50),
     symptoms varchar(50),
     latestBookingDate DATE,
     place varchar(50),
-    PMH varchar(100),
-    allergy varchar(50),
     FOREIGN KEY (list_id) REFERENCES lists(list_id)
 );
 
