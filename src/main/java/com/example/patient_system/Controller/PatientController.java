@@ -1,4 +1,4 @@
-package com.example.patient_system.controller;
+package com.example.patient_system.Controller;
 
 import com.example.patient_system.entity.Lists;
 import com.example.patient_system.entity.Patient;

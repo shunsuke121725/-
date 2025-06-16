@@ -12,13 +12,13 @@
     <h3>ユーザ登録</h3>
     <form th:action="@{/register}" th:object="${userForm}" method="post">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="username" name="username" th:field="*{username}">
+            <input type="text" class="form-control w-50" id="username" name="username" th:field="*{username}">
             <label for="username">ユーザ名:
                 <i class="bi bi-person-fill"></i>
             </label>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="password" name="password" th:field="*{password}">
+            <input type="password" class="form-control w-50" id="password" name="password" th:field="*{password}">
             <label for="password">パスワード:
                 <i class="bi bi-file-lock2"></i>
             </label>
