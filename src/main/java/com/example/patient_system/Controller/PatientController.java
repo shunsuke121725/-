@@ -1,6 +1,5 @@
 package com.example.patient_system.Controller;
 
-import com.example.patient_system.entity.Lists;
 import com.example.patient_system.entity.Patient;
 import com.example.patient_system.service.PatientService;
 import org.springframework.stereotype.Controller;
@@ -24,18 +23,18 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    // 患者一覧（URL: /patients または /patients/home）
-    @GetMapping("/home")
+    // 患者一覧（URL: /home） これは使ってないのです、homeは使ってない
+    /*@GetMapping("/patient")
     public String showPatientList(Model model) {
         List<Patient> patients = patientService.getAllPatients();
         model.addAttribute("patients", patients);
-        return "home"; // resources/templates/home.html を表示
-    }
+        return "patient-list"; // resources/templates/patient.html を表示
+    }*/
 
     @GetMapping
     public String patientList(Model model) {
         List<Patient> patients = patientService.getAllPatients();  
-        model.addAttribute("patients", patients);  
+        model.addAttribute("patients", patients);  //list ではない！！
         return "patient-list";
     }
 
